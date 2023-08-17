@@ -1,42 +1,37 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+.App {
+  margin: 0;
+  padding: 40px;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Grid layout */
+
+.container {  
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr 1fr;
+  grid-template-rows: 0.8fr 0.8fr 0.8fr 0.8fr 1.8fr;
+  grid-auto-rows: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "tempo tempo playlist"
+    "energy mode playlist"
+    "speech . playlist"
+    "valence . playlist"
+    "howToUse push playlist";
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+.tempo { grid-area: tempo; }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
+.energy { grid-area: energy; }
 
-.card {
-  padding: 2em;
-}
+.mode { grid-area: mode; }
 
-.read-the-docs {
-  color: #888;
-}
+.speech { grid-area: speech; }
+
+.valence { grid-area: valence; }
+
+.howToUse { grid-area: howToUse; }
+
+.push { grid-area: push; }
+
+.playlist { grid-area: playlist; }
