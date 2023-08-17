@@ -8,5 +8,13 @@ https://ut-code.github.io/music-app/
 
 ```bash
 $ npm install
+$ npm run setup:env
+```
+
+.env ファイルの VITE_SUPABASE_URL, VITE_SUPABASE_ANON_KEY を変更してください。
+
+## Run
+
+```bash
 $ npm run dev
 ```
