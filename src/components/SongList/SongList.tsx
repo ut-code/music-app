@@ -1,4 +1,4 @@
-import styles from '../styles/songList.module.css';
+import styles from './SongList.module.css';
 
 export default function SongList(props: { order: string, name: string, artist: string, time: number }) {
     return (
