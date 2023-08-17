@@ -1,18 +1,18 @@
 @import url(http://fonts.googleapis.com/earlyaccess/notosansjapanese.css);
 body {
   margin: 0;
-  font-family: 'Noto Sans Japanese', sans-serif;
+  font-family: "Noto Sans Japanese", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: 'Noto Sans Japanese', sans-serif;
+  font-family: "Noto Sans Japanese", sans-serif;
 }
 
-:root{
-  --Blue: #30A9DE;
-  --Pink: #E53A40;
-  --Yellow: #EFDC05;
+:root {
+  --Blue: #30a9de;
+  --Pink: #e53a40;
+  --Yellow: #efdc05;
   --Black: #090707;
 }
