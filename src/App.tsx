@@ -1,7 +1,7 @@
 import './App.css';
 
 /* Components */
-import SongList from './components/songList';
+import SongList from './components/SongList/SongList';
 
 function App() {
   return (
