@@ -1,38 +1,38 @@
 .App {
-  text-align: center;
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Grid layout */
+
+.container {  
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr 1fr;
+  grid-template-rows: 0.8fr 0.8fr 0.8fr 0.8fr 1.8fr;
+  grid-auto-rows: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "tempo tempo playlist"
+    "energy mode playlist"
+    "speech . playlist"
+    "valence . playlist"
+    "howToUse push playlist";
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+.tempo { grid-area: tempo; }
 
-.App-header {
-  background-color: var(--Blue);
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+.energy { grid-area: energy; }
 
-.App-link {
-  color: #61dafb;
-}
+.mode { grid-area: mode; }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+.speech { grid-area: speech; }
+
+.valence { grid-area: valence; }
+
+.howToUse { grid-area: howToUse; }
+
+.push { grid-area: push; }
+
+.playlist { grid-area: playlist; }
+
