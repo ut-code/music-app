@@ -17,6 +17,7 @@ app.get("/", (req, res) => {
 
 /*
 /api/songsで取得するデータは以下のような形式
+preview_urlがないデータもあるので、その場合はnullになる。どうしましょうか
 type Feature = {
   preview_url: string,
   tempo: number,
