@@ -11,7 +11,7 @@ datasource db {
 }
 
 model Music {
-  id        String  @id @default(uuid()) @unique
+  id       Int     @id @default(autoincrement()) @unique
   music_id String  @unique
   tempo     Float
   energy    Float
