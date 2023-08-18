@@ -1,3 +1,5 @@
+import styles from "./PushButton.module.css"
+
 export type SendingData = {
   tempo: number
   energy: number
@@ -13,9 +15,11 @@ type ButtonProp = {
 
 export default function PushButton(props: ButtonProp): JSX.Element {
   return (
-    <>
-      <button onClick={() => onClick(props.getter())}>PUSH!</button>
-    </>
+    <div style={{ display: "flex", justifyContent: "center" }}>
+      <button onClick={() => onClick(props.getter())} className={styles.button013}>
+        PUSH
+      </button>
+    </div>
   )
 }
 
@@ -26,7 +30,6 @@ async function onClick(data: SendingData) {
     `?tempo=${data.tempo}&energy=${data.energy}&speech=${data.speech}&valence=${data.valence}&mode=${data.mode}&
     tolerance=${data.tolerance}`
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   // let response: any
   await fetch(url, {
     method: "GET",

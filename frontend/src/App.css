@@ -12,7 +12,7 @@
     "speech . playlist"
     "valence . playlist"
     "howToUse push playlist";
-  
+
   margin: 0;
   padding: 40px;
 }
@@ -39,6 +39,11 @@
 
 .howToUse {
   grid-area: howToUse;
+  border: 1px solid #e53a40;
+  color: #e53a40;
+  text-align: center;
+  padding: 30px;
+  max-width: 396px;
 }
 
 .push {
@@ -47,4 +52,20 @@
 
 .playlist {
   grid-area: playlist;
+}
+
+h1 {
+  font-weight: bold;
+  font-style: italic;
+  font-size: 64px;
+}
+
+h3 {
+  font-weight: bold;
+  font-style: italic;
+  font-size: 24px;
+}
+
+p {
+  font-size: 13px;
 }
