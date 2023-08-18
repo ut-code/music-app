@@ -3,6 +3,8 @@ import { generateAccessToken } from "./db/token";
 import { searchSongs } from "./db/searchSongs";
 import { songsList } from "./db/songsList";
 import dotenv from "dotenv";
+import { PrismaClient } from "@prisma/client";
+import cors from "cors";
 
 dotenv.config();
 const SPOTIFY_CLIENT_ID = process.env.SPOTIFY_CLIENT_ID;
@@ -10,6 +12,9 @@ const SPOTIFY_CLIENT_SECRET = process.env.SPOTIFY_CLIENT_SECRET;
 
 
 const app = express();
+const prisma = new PrismaClient();
+
+app.use(cors());
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
@@ -29,11 +34,8 @@ type Feature = {
 */
 
 app.get("/api/songs", async (req, res) => {
-  const token = await generateAccessToken(SPOTIFY_CLIENT_ID!, SPOTIFY_CLIENT_SECRET!);
-  // 取ってくる曲のリスト
-  const searchTerms = songsList;
-  const songs = await searchSongs(token, searchTerms);
-  console.log(songs);
+  const music = await prisma.music.findMany();
+  res.send(music);
 })
 
 const PORT = 5050;
