@@ -3,7 +3,7 @@ import "./App.css"
 
 /* Components */
 import SongList, { SongData } from "./components/SongList/SongList"
-import PushButton, { SendingData } from "./components/PushButton.tsx"
+import PushButton, { SendingData } from "./components/PushButton/PushButton"
 import Slider from "./components/Slider.tsx"
 // import RangeSlider2 from "./components/RangeSlider2.tsx"
 
