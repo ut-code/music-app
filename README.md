@@ -22,7 +22,7 @@ $ npm install
 $ npm run setup:env
 ```
 
-.env ファイルの VITE_SUPABASE_URL, VITE_SUPABASE_ANON_KEY を変更してください。
+.env ファイルの VITE_SUPABASE_URL, VITE_SUPABASE_ANON_KEY, DATABASE_URL を変更してください。
 
 ## Run
 
