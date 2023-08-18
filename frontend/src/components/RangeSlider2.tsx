@@ -20,7 +20,7 @@ const RangeSlider: React.FC<RangeSliderProps> = ({
   const [maxKnobValue, setMaxKnobValue] = useState(initialMaxValue)
   const sliderRef = useRef<HTMLDivElement>(null)
 
-  const handleKnobMouseDown = (event: React.MouseEvent<HTMLDivElement>, knob: "min" | "max") => {
+  const handleKnobMouseDown = (knob: "min" | "max") => {
     if (sliderRef.current) {
       const sliderRect = sliderRef.current.getBoundingClientRect()
       // const mouseOffsetX = event.clientX - sliderRect.left
@@ -68,12 +68,12 @@ const RangeSlider: React.FC<RangeSliderProps> = ({
       <div
         className="knob min-knob"
         style={{ left: `${(minKnobValue / maxValue) * 100}%` }}
-        onMouseDown={(e) => handleKnobMouseDown(e, "min")}
+        onMouseDown={() => handleKnobMouseDown("min")}
       />
       <div
         className="knob max-knob"
         style={{ left: `${(maxKnobValue / maxValue) * 100}%` }}
-        onMouseDown={(e) => handleKnobMouseDown(e, "max")}
+        onMouseDown={() => handleKnobMouseDown("max")}
       />
     </div>
   )
