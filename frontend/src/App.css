@@ -1,8 +1,3 @@
-html {
-  margin: 0;
-  padding: 40px;
-}
-
 /* Grid layout */
 .container {
   display: grid;
@@ -17,6 +12,9 @@ html {
     "speech . playlist"
     "valence . playlist"
     "howToUse push playlist";
+  
+  margin: 0;
+  padding: 40px;
 }
 
 .tempo {
@@ -50,20 +48,3 @@ html {
 .playlist {
   grid-area: playlist;
 }
-
-/* #parameter-sliders {
-  float: left;
-  width: 50%;
-} */
-
-/* #playlist {
-  float: right;
-  width: 40%;
-} */
-
-/* #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-} */

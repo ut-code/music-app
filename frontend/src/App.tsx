@@ -39,7 +39,7 @@ export default function App() {
 
   return (
     <>
-      <div id="parameter-sliders" className="container">
+      <div className="container">
         <div className="tempo">
           <MySlider
             name="Tempo"
