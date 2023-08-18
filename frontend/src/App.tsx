@@ -85,7 +85,7 @@ export default function App() {
           />
         </div>
         <div className="mode">
-          <Slider
+          {/* <Slider
             name="Mode"
             value={ModeValue}
             onChange={setModeState}
@@ -93,7 +93,47 @@ export default function App() {
             max={1}
             step={1}
             description="曲が長調(1)か短調(0)かを表します。0または1"
-          />
+          /> */}
+          <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+            <h3>Mode</h3>
+            <p>曲が長調・短調を表します。0または1</p>
+          </div>
+          <div className="buttonContainer">
+            <div className={`radio major`}>
+              <input
+                id="major"
+                type="radio"
+                name="mode"
+                value={1}
+                onChange={() => setModeState(1)}
+                checked={ModeValue === 1}
+              />
+              <label htmlFor={"major"} className="label">長調</label>
+            </div>
+            <div className={`radio minor`}>
+              <input
+                id="minor"
+                type="radio"
+                name="mode"
+                value={0}
+                onChange={() => setModeState(0)}
+                checked={ModeValue === 0}
+              />
+              <label htmlFor={"minor"} className="label">短調</label>
+            </div>
+            <div className={`radio whichever`}>
+              <input
+                id="whichever"
+                type="radio"
+                name="mode"
+                value={-1}
+                onChange={() => setModeState(-1)}
+                checked={ModeValue === -1}
+              />
+              <label htmlFor={"whichever"} className="label">どちらでもいい</label>
+            </div>
+            ModeValue: {ModeValue}
+          </div>
         </div>
         {/* <Slider
               name="Err"
