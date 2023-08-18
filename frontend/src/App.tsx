@@ -20,9 +20,9 @@ export default function App() {
   // const [maxValue, setMaxState] = useState<number>(0.2)
 
   const [SongsValue] = useState<SongData[]>([
-    { order: "1", name: "ドラえもん", url: "http://localhost:3000", time: 120 },
-    { order: "2", name: "ドラえもん", url: "http://localhost:3000", time: 120 },
-    { order: "3", name: "ドラえもん", url: "http://localhost:3000", time: 120 },
+    { order: "01", name: "ドラえもん", url: "http://localhost:3000", time: 120 },
+    { order: "02", name: "ドラえもん", url: "http://localhost:3000", time: 120 },
+    { order: "03", name: "ドラえもん", url: "http://localhost:3000", time: 120 },
   ])
 
   const getData: () => SendingData = () => {
@@ -115,7 +115,7 @@ export default function App() {
           <PushButton getter={getData} />
         </div>
         <div className="playlist">
-          <h1>playlist</h1>
+          <h1 style={{ color: "#30A9DE", textAlign: "end", textDecoration: "underline" }}>Playlist</h1>
           {SongsValue.map((song) => (
             <SongList key={song.order} order={song.order} name={song.name} url={song.url} time={song.time} />
           ))}

@@ -30,7 +30,6 @@ async function onClick(data: SendingData) {
     `?tempo=${data.tempo}&energy=${data.energy}&speech=${data.speech}&valence=${data.valence}&mode=${data.mode}&
     tolerance=${data.tolerance}`
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   // let response: any
   await fetch(url, {
     method: "GET",
