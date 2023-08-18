@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "setup:env": "cp .env.sample .env",
-    "dev": "ts-node-dev --ignore-watch node_modules --respawn src/main.ts"
+    "dev": "ts-node-dev --ignore-watch node_modules --respawn src/main.ts",
+    "build": "tsc",
+    "start": "node dist/src/main.js"
   },
   "keywords": [],
   "author": "",
