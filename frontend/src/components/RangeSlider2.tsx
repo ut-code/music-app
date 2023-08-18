@@ -23,7 +23,7 @@ const RangeSlider: React.FC<RangeSliderProps> = ({
   const handleKnobMouseDown = (event: React.MouseEvent<HTMLDivElement>, knob: "min" | "max") => {
     if (sliderRef.current) {
       const sliderRect = sliderRef.current.getBoundingClientRect()
-      const mouseOffsetX = event.clientX - sliderRect.left
+      // const mouseOffsetX = event.clientX - sliderRect.left
 
       const handleMouseMove = (event: MouseEvent) => {
         const newKnobValue = Math.min(

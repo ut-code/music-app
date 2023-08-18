@@ -26,13 +26,14 @@ async function onClick(data: SendingData) {
     `?tempo=${data.tempo}&energy=${data.energy}&speech=${data.speech}&valence=${data.valence}&mode=${data.mode}&
     tolerance=${data.tolerance}`
 
-  let response: any
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  // let response: any
   await fetch(url, {
     method: "GET",
   })
     .then((response) => response.json())
     .then((data) => {
       console.log(data)
-      response = data
+      // let response = data
     })
 }
