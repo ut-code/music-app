@@ -1,7 +1,7 @@
 import { useState } from "react"
 import PushButton, { SendingData } from "./components/PushButton.tsx"
 import "./App.css"
-import MySlider from "./components/RangeSlider.tsx"
+import Slider from "./components/Slider.tsx"
 // import RangeSlider2 from "./components/RangeSlider2.tsx"
 
 /* Components */
@@ -41,7 +41,7 @@ export default function App() {
     <>
       <div className="container">
         <div className="tempo">
-          <MySlider
+          <Slider
             name="Tempo"
             value={TempoValue}
             onChange={setTempoState}
@@ -52,7 +52,7 @@ export default function App() {
           />
         </div>
         <div className="energy">
-          <MySlider
+          <Slider
             name="Energy"
             value={EnergyValue}
             onChange={setEnergyState}
@@ -63,7 +63,7 @@ export default function App() {
           />
         </div>
         <div className="speech">
-          <MySlider
+          <Slider
             name="Speech"
             value={SpeechValue}
             onChange={setSpeechState}
@@ -74,7 +74,7 @@ export default function App() {
           />
         </div>
         <div className="valence">
-          <MySlider
+          <Slider
             name="Valence"
             value={ValenceValue}
             onChange={setValenceState}
@@ -85,7 +85,7 @@ export default function App() {
           />
         </div>
         <div className="mode">
-          <MySlider
+          <Slider
             name="Mode"
             value={ModeValue}
             onChange={setModeState}
@@ -95,7 +95,7 @@ export default function App() {
             description="曲が長調(1)か短調(0)かを表します。"
           />
         </div>
-        {/* <MySlider
+        {/* <Slider
                   name="Err"
                   value={ErrValue}
                   onChange={setErrState}
