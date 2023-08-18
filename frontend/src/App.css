@@ -39,6 +39,11 @@
 
 .howToUse {
   grid-area: howToUse;
+  border: 1px solid #e53a40;
+  color: #e53a40;
+  text-align: center;
+  padding: 30px;
+  max-width: 396px;
 }
 
 .push {

@@ -17,13 +17,15 @@ export default function Slider(props: Props): JSX.Element {
         <h3>{props.name}</h3>
         <p>{props.description}</p>
       </div>
-      <RangeSlider
-        value={props.value}
-        onChange={(changeEvent) => props.onChange(+changeEvent.target.value)}
-        min={props.min}
-        max={props.max}
-        step={props.step}
-      />
+      <div style={{ width: "100%" }}>
+        <RangeSlider
+          value={props.value}
+          onChange={(changeEvent) => props.onChange(+changeEvent.target.value)}
+          min={props.min}
+          max={props.max}
+          step={props.step}
+        />
+      </div>
     </>
   )
 }

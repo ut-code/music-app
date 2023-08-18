@@ -96,16 +96,20 @@ export default function App() {
           />
         </div>
         {/* <Slider
-                  name="Err"
-                  value={ErrValue}
-                  onChange={setErrState}
-                  min={0}
-                  max={1}
-                  step={0.01}
-                  description="指定した値からのずれをどの程度許容するかを表します。"
-                /> */}
+              name="Err"
+              value={ErrValue}
+              onChange={setErrState}
+              min={0}
+              max={1}
+              step={0.01}
+              description="指定した値からのずれをどの程度許容するかを表します。"
+            /> */}
         <div className="howToUse">
           <h3>How to Use</h3>
+          <p>
+            Tempo, Energy, Speech,
+            Valenceのひねりを変えたり、Modeのボタンを変え、PUSHボタンを押すと画面右にプレイリストが表示されます。これを使えば、その日の気分に合わせてプレイリストを自動作成することができます。
+          </p>
         </div>
         <div className="push">
           <PushButton getter={getData} />
