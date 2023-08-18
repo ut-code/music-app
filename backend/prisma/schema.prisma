@@ -1,0 +1,22 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Music {
+  id        String  @id @default(uuid()) @unique
+  music_id String  @unique
+  tempo     Float
+  energy    Float
+  speech    Float
+  valence   Float
+  mode      Int
+  music_url String
+}
