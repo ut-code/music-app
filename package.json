@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "setup:env": "cp .env.sample .env",
+    "setup:env": "cp .env.sample .env && cd backend && cp .env.sample .env",
     "lint": "eslint --fix src",
     "format": "prettier --write .",
     "fix": "npm run lint && npm run format",
