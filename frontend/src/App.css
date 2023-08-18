@@ -12,9 +12,9 @@
     "speech . playlist"
     "valence . playlist"
     "howToUse push playlist";
-  
+
   margin: 0;
-  padding: 40px;
+  padding: 15px 40px;
 }
 
 .tempo {
@@ -39,6 +39,11 @@
 
 .howToUse {
   grid-area: howToUse;
+  border: 1px solid #e53a40;
+  color: #e53a40;
+  text-align: center;
+  padding: 30px;
+  max-width: 396px;
 }
 
 .push {
@@ -47,4 +52,25 @@
 
 .playlist {
   grid-area: playlist;
+}
+
+h1 {
+  margin: 0 0 20px 0;
+  font-weight: 800;
+  font-style: italic;
+  font-size: 64px;
+  border-bottom: solid 2px var(--Blue)
+}
+
+h3 {
+  font-weight: 700;
+  font-style: italic;
+  font-size: 24px;
+}
+
+p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 2; /* 行間 */
+  text-align: justify; /* 両端揃え */
 }
