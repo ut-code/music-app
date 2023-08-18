@@ -1,9 +1,20 @@
 import { generateAccessToken } from "./token";
+import { fetchFeatures } from "./fetchFeatures";
 
 type Song = {
     id: string,
     preview_url: string
 }
+
+type Feature = {
+    preview_url: string,
+    tempo: number,
+    energy: number,
+    instumentalness: number,
+    valence: number,
+    mode: number,
+}
+
 
 // 曲のidとプレビューのurlを取得する
 export const searchSongs = async (token: string, searchTerms: string[]) => {
@@ -23,5 +34,9 @@ export const searchSongs = async (token: string, searchTerms: string[]) => {
         }
         return song;
     }))
-    console.log(songs)
+    const features = await Promise.all(songs.map(async (song) => {
+        const feature = await fetchFeatures(token, song.id, song.preview_url);
+        return feature;
+    }))
+    return features;
 }
