@@ -1,3 +1,6 @@
+.songList {
+  padding: 5px 0px;
+}
 .container {
   display: grid;
   grid-template-columns: 0.2fr 1.8fr;

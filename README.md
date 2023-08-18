@@ -10,7 +10,6 @@ frontendでは、
 
 ```bash
 $ npm install
-$ npm run setup:env
 ```
 
 を実行してください
@@ -20,6 +19,7 @@ backendでは、
 ```bash
 $ cd backend
 $ npm install
+$ npm run setup:env
 ```
 
 .env ファイルの VITE_SUPABASE_URL, VITE_SUPABASE_ANON_KEY を変更してください。

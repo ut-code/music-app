@@ -7,7 +7,6 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "setup:env": "cp .env.sample .env",
     "lint": "eslint --fix src",
     "format": "prettier --write .",
     "fix": "npm run lint && npm run format"
@@ -17,7 +16,6 @@
     "*.{ts,tsx,js,jsx}": "eslint --fix"
   },
   "dependencies": {
-    "@supabase/supabase-js": "^2.32.0",
     "@types/react-bootstrap-range-slider": "^1.2.1",
     "react": "^18.2.0",
     "react-bootstrap-range-slider": "^3.0.8",
@@ -31,7 +29,6 @@
     "@vitejs/plugin-react-swc": "^3.3.2",
     "eslint": "^8.45.0",
     "eslint-config-prettier": "^9.0.0",
-    "eslint-plugin-prettier": "^5.0.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
     "husky": "^8.0.0",
