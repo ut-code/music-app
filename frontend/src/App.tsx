@@ -1,4 +1,5 @@
 import "./App.css"
+import React from "react"
 
 /* Components */
 import SongList from "./components/SongList/SongList"
