@@ -39,9 +39,8 @@ export default function App() {
 
   return (
     <>
-      {/* スライダー群 */}
-      <div id="parameter-sliders" style={{ display: "flex" }}>
-        <div>
+      <div id="parameter-sliders" className="container">
+        <div className="tempo">
           <MySlider
             name="Tempo"
             value={TempoValue}
@@ -51,47 +50,52 @@ export default function App() {
             step={1}
             description="曲のBPM (テンポ) を表します。(1-999)"
           />
-          <div style={{ display: "flex" }}>
-            <div>
-              <MySlider
-                name="Energy"
-                value={EnergyValue}
-                onChange={setEnergyState}
-                min={0}
-                max={1}
-                step={0.01}
-                description="曲のエネルギッシュさを表します。(0-1)"
-              />
-              <MySlider
-                name="Speech"
-                value={SpeechValue}
-                onChange={setSpeechState}
-                min={0}
-                max={1}
-                step={0.01}
-                description="曲に歌がどの程度入っているかを表します。(0-1)"
-              />
-              <MySlider
-                name="Valence"
-                value={ValenceValue}
-                onChange={setValenceState}
-                min={0}
-                max={1}
-                step={0.01}
-                description="曲のネガティブさ、ポジティブさを表します。(N 0-1 P)"
-              />
-            </div>
-            <div>
-              <MySlider
-                name="Mode"
-                value={ModeValue}
-                onChange={setModeState}
-                min={0}
-                max={1}
-                step={1}
-                description="曲が長調(1)か短調(0)かを表します。"
-              />
-              {/* <MySlider
+        </div>
+        <div className="energy">
+          <MySlider
+            name="Energy"
+            value={EnergyValue}
+            onChange={setEnergyState}
+            min={0}
+            max={1}
+            step={0.01}
+            description="曲のエネルギッシュさを表します。(0-1)"
+          />
+        </div>
+        <div className="speech">
+          <MySlider
+            name="Speech"
+            value={SpeechValue}
+            onChange={setSpeechState}
+            min={0}
+            max={1}
+            step={0.01}
+            description="曲に歌がどの程度入っているかを表します。(0-1)"
+          />
+        </div>
+        <div className="valence">
+          <MySlider
+            name="Valence"
+            value={ValenceValue}
+            onChange={setValenceState}
+            min={0}
+            max={1}
+            step={0.01}
+            description="曲のネガティブさ、ポジティブさを表します。(N 0-1 P)"
+          />
+        </div>
+        <div className="mode">
+          <MySlider
+            name="Mode"
+            value={ModeValue}
+            onChange={setModeState}
+            min={0}
+            max={1}
+            step={1}
+            description="曲が長調(1)か短調(0)かを表します。"
+          />
+        </div>
+        {/* <MySlider
                   name="Err"
                   value={ErrValue}
                   onChange={setErrState}
@@ -100,17 +104,18 @@ export default function App() {
                   step={0.01}
                   description="指定した値からのずれをどの程度許容するかを表します。"
                 /> */}
-              <PushButton getter={getData} />
-            </div>
-          </div>
+        <div className="howToUse">
+          <h3>How to Use</h3>
         </div>
-      </div>
-
-      <div className="playlist">
-        <h1>playlist</h1>
-        {SongsValue.map((song) => (
-          <SongList key={song.order} order={song.order} name={song.name} url={song.url} time={song.time} />
-        ))}
+        <div className="push">
+          <PushButton getter={getData} />
+        </div>
+        <div className="playlist">
+          <h1>playlist</h1>
+          {SongsValue.map((song) => (
+            <SongList key={song.order} order={song.order} name={song.name} url={song.url} time={song.time} />
+          ))}
+        </div>
       </div>
     </>
   )
