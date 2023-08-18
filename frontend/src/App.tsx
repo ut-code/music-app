@@ -48,7 +48,7 @@ export default function App() {
             min={1}
             max={999}
             step={1}
-            description="曲のBPM (テンポ) を表します。(1-999)"
+            description="曲のBPM (テンポ) を表します。1-999"
           />
         </div>
         <div className="energy">
@@ -59,7 +59,7 @@ export default function App() {
             min={0}
             max={1}
             step={0.01}
-            description="曲のエネルギッシュさを表します。(0-1)"
+            description="曲のエネルギッシュさを表します。0-1"
           />
         </div>
         <div className="speech">
@@ -70,7 +70,7 @@ export default function App() {
             min={0}
             max={1}
             step={0.01}
-            description="曲に歌がどの程度入っているかを表します。(0-1)"
+            description="曲に歌がどの程度入っているかを表します。0-1"
           />
         </div>
         <div className="valence">
@@ -81,7 +81,7 @@ export default function App() {
             min={0}
             max={1}
             step={0.01}
-            description="曲のネガティブさ、ポジティブさを表します。(N 0-1 P)"
+            description="曲のネガティブさ、ポジティブさを表します。0-1"
           />
         </div>
         <div className="mode">
@@ -92,7 +92,7 @@ export default function App() {
             min={0}
             max={1}
             step={1}
-            description="曲が長調(1)か短調(0)かを表します。"
+            description="曲が長調(1)か短調(0)かを表します。0または1"
           />
         </div>
         {/* <Slider
