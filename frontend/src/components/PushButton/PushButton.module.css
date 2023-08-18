@@ -5,8 +5,8 @@
   border-radius: 50%;
   background-color: #efdc05;
 
-  color: #000000;
-  font-weight: bold;
+  color: var(--Black);
+  font-weight: 900;
   font-style: italic;
-  font-size: 64px;
+  font-size: 60px;
 }
