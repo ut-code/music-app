@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: music-app
+    env: static
+    rootDir: frontend
+    buildCommand: npm ci && npm run build
+    staticPublishPath: dist
+    envVars:
+      - key: VITE_API_ENDPOINT
+        sync: false
+  - type: web
+    name: music-app-backend
+    env: node
+    region: singapore
+    plan: free
+    rootDir: backend
+    buildCommand: npm ci && npm run build
+    startCommand: npm run start
+    envVars:
+      - key: PORT
+        value: 5050
+      - key: DATABASE_URL
+        sync: false
+      - key: WEB_ORIGIN
+        sync: false
