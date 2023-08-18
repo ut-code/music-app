@@ -2,9 +2,10 @@ type Feature = {
     preview_url: string,
     tempo: number,
     energy: number,
-    instumentalness: number,
+    speech: number,
     valence: number,
     mode: number,
+    music_id: string
 }
 
 export const fetchFeatures = async (token: string, songId: string, preview_url: string) => {
@@ -20,9 +21,10 @@ export const fetchFeatures = async (token: string, songId: string, preview_url: 
         preview_url: preview_url,
         tempo: data.tempo,
         energy: data.energy,
-        instumentalness: data.instumentalness,
+        speech: data.instumentalness,
         valence: data.valence,
-        mode: data.mode
+        mode: data.mode,
+        music_id: songId
     }
     return features;    
-} 
+}
