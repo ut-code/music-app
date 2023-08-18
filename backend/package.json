@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "setup:env": "cp .env.sample .env",
     "dev": "ts-node-dev --ignore-watch node_modules --respawn src/main.ts"
   },
   "keywords": [],
