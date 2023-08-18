@@ -1,0 +1,32 @@
+name: Build
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  SaveNpmCache:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: latest
+
+      - name: Install npm dependencies
+        working-directory: ./frontend
+        run: npm ci
+        shell: bash
+
+      - name: Cache npm dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-npm-${{ hashFiles('./frontend/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-npm-
