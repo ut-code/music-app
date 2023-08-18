@@ -18,5 +18,5 @@ model Music {
   speech    Float
   valence   Float
   mode      Int
-  music_url String
+  music_url String?
 }
