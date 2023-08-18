@@ -6,7 +6,7 @@ export type SendingData = {
     speech:number;
     valence:number;
     mode:number;
-    err:number
+    tolerance:number
 }
 
 type ButtonProp = {
@@ -24,24 +24,24 @@ export default function PushButton(props:ButtonProp):JSX.Element{
 
 }
 
-function onClick(data:SendingData){
+async function onClick(data:SendingData){
 
     //const json:string = JSON.stringify(data);
-    var url = 'url'+'?';
-
-    url+='tempo='+data.tempo;
-    url+='&energy='+data.energy;
-    url+='&speech='+data.speech;
-    url+='&valence='+data.valence;
-    url+='&mode='+data.mode;
-    url+='&err='+data.err;
+    var url = 'url'+`?tempo=${data.tempo}&energy=${data.energy}&speech=${data.speech}&valence=${data.valence}&mode=${data.mode}&
+    tolerance=${data.tolerance}`;
   
-    fetch('url', {
+
+    var response:any;
+    await fetch(url, {
         method: 'GET',
     })
     .then(response => response.json())
     .then(data => {
         console.log(data);
+        response = data;
     });
 
+
+
+    
 }

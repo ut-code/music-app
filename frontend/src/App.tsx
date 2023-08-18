@@ -3,10 +3,11 @@ import PushButton, {SendingData} from "./components/PushButton.tsx"
 import "./App.css"
 import React from "react"
 import MySlider from './components/RangeSlider.tsx';
+import RangeSlider2 from "./components/RangeSlider2.tsx"
 
 
 /* Components */
-import SongList from "./components/SongList/SongList"
+import SongList, { SongData } from "./components/SongList/SongList"
 
 
 export default function App(){
@@ -18,6 +19,21 @@ export default function App(){
   const [ ModeValue, setModeState ] = useState<number>(0);
   const [ ErrValue, setErrState ] = useState<number>(0.1);
 
+  //range2のためのState
+  const [ minValue, setMinState ] = useState<number>(0.1);
+  const [ maxValue, setMaxState ] = useState<number>(0.2);
+
+
+  const [ SongsValue, setSongsState ] = useState<SongData[]>(
+
+    [
+      { order:"1", name:"ドラえもん",url:"http://localhost:3000",time:120 },
+      { order:"2", name:"ドラえもん",url:"http://localhost:3000",time:120 },
+      { order:"3", name:"ドラえもん",url:"http://localhost:3000",time:120 }
+    ]
+
+  ); 
+
 
 
   const getData : ()=>SendingData = ()=>{
@@ -27,10 +43,14 @@ export default function App(){
       speech:SpeechValue,
       valence:ValenceValue,
       mode:ModeValue,
-      err:ErrValue
+      tolerance:ErrValue
     }
     return data;
   }
+
+
+
+
 
 
 
@@ -39,25 +59,40 @@ export default function App(){
     <>
 
     {/* スライダー群 */}
-    <MySlider name="Tempo" value={TempoValue} onChange={setTempoState} min={1} max={999} step={1}/>
+    <div id="parameter-sliders">
+    <MySlider name="Tempo" value={TempoValue} onChange={setTempoState} min={1} max={999} step={1} description='曲のBPM (テンポ) を表します。(1-999)'/>
     <br></br>
-    <MySlider name="Energy" value={EnergyValue} onChange={setEnergyState} min={0} max={1} step={0.01}/>
+    <MySlider name="Energy" value={EnergyValue} onChange={setEnergyState} min={0} max={1} step={0.01} description='曲のエネルギッシュさを表します。(0-1)'/>
     <br></br>
-    <MySlider name="Speech" value={SpeechValue} onChange={setSpeechState} min={0} max={1} step={0.01}/>
+    <MySlider name="Speech" value={SpeechValue} onChange={setSpeechState} min={0} max={1} step={0.01} description='曲に歌がどの程度入っているかを表します。(0-1)'/>
     <br></br>
-    <MySlider name="Valence" value={ValenceValue} onChange={setValenceState}  min={0} max={1} step={0.01} />
+    <MySlider name="Valence" value={ValenceValue} onChange={setValenceState}  min={0} max={1} step={0.01} description='曲のネガティブさ、ポジティブさを表します。(N 0-1 P)'/>
     <br></br>
-    <MySlider name="Mode" value={ModeValue} onChange={setModeState}  min={0} max={1} step={1}/>
+    <MySlider name="Mode" value={ModeValue} onChange={setModeState}  min={0} max={1} step={1}  description='曲が長調(1)か短調(0)かを表します。'/>
     <br></br>
-    <MySlider name="Err" value={ErrValue} onChange={setErrState}  min={0} max={1} step={0.01}/>
+    <MySlider name="Err" value={ErrValue} onChange={setErrState}  min={0} max={1} step={0.01} description='指定した値からのずれをどの程度許容するかを表します。'/>
 
-    {/* 決定ボタン */}
-    <PushButton getter={getData} />
 
+
+        {/* 決定ボタン */}
+        <PushButton getter={getData} />
+    </div>
+
+
+
+
+    <div className="playlist">
+          <h1>playlist</h1>
+          {SongsValue.map((song) => (
+        <SongList key={song.order} order={song.order} name={song.name} url={song.url} time={song.time}/>
+      ))}
+    </div>
 
     </>
   );
 
   
 }
+
+
 

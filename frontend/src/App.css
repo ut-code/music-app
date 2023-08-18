@@ -53,6 +53,17 @@
 } */
 
 
+#parameter-sliders{
+  float: left;
+  width: 50%;
+}
+
+
+#playlist{
+  float:right;
+  width: 40%;
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
