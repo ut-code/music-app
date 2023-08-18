@@ -10,9 +10,10 @@ type Feature = {
     preview_url: string,
     tempo: number,
     energy: number,
-    instumentalness: number,
+    speech: number,
     valence: number,
     mode: number,
+    music_id: string
 }
 
 
