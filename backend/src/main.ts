@@ -14,7 +14,7 @@ const SPOTIFY_CLIENT_SECRET = process.env.SPOTIFY_CLIENT_SECRET;
 const app = express();
 const prisma = new PrismaClient();
 
-app.use(cors());
+app.use(cors({ origin: process.env.WEB_ORIGIN }));
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
