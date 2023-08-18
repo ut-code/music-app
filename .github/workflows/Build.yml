@@ -7,7 +7,7 @@ on:
     branches: [main, master]
 
 jobs:
-  SaveNpmCache:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -17,16 +17,13 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: latest
+          cache: npm
 
       - name: Install npm dependencies
         working-directory: ./frontend
         run: npm ci
         shell: bash
 
-      - name: Cache npm dependencies
-        uses: actions/cache@v2
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-npm-${{ hashFiles('./frontend/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-npm-
+      - name: Build
+        working-directory: ./frontend
+        run: npm run build
