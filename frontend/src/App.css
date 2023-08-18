@@ -52,15 +52,13 @@
   grid-area: playlist;
 } */
 
-
-#parameter-sliders{
+#parameter-sliders {
   float: left;
   width: 50%;
 }
 
-
-#playlist{
-  float:right;
+#playlist {
+  float: right;
   width: 40%;
 }
 
@@ -106,4 +104,3 @@
 .read-the-docs {
   color: #888;
 }
-

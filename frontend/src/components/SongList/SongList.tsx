@@ -1,10 +1,10 @@
 import styles from "./SongList.module.css"
 
 export type SongData = {
-  order:string;
-  name:string;
-  url:string;
-  time:number;
+  order: string
+  name: string
+  url: string
+  time: number
 }
 
 export default function SongList(props: SongData) {
