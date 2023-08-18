@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import RangeSlider from 'react-bootstrap-range-slider';
 
 
