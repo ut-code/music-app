@@ -15,6 +15,19 @@ app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
+/*
+/api/songsで取得するデータは以下のような形式
+preview_urlがないデータもあるので、その場合はnullになる。どうしましょうか
+type Feature = {
+  preview_url: string,
+  tempo: number,
+  energy: number,
+  instumentalness: number,
+  valence: number,
+  mode: number,
+}
+*/
+
 app.get("/api/songs", async (req, res) => {
   const token = await generateAccessToken(SPOTIFY_CLIENT_ID!, SPOTIFY_CLIENT_SECRET!);
   // 取ってくる曲のリスト
