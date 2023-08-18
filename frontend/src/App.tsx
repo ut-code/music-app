@@ -1,11 +1,11 @@
 import { useState } from "react"
-import PushButton, { SendingData } from "./components/PushButton.tsx"
 import "./App.css"
-import Slider from "./components/Slider.tsx"
-// import RangeSlider2 from "./components/RangeSlider2.tsx"
 
 /* Components */
 import SongList, { SongData } from "./components/SongList/SongList"
+import PushButton, { SendingData } from "./components/PushButton.tsx"
+import Slider from "./components/Slider.tsx"
+// import RangeSlider2 from "./components/RangeSlider2.tsx"
 
 export default function App() {
   const [TempoValue, setTempoState] = useState<number>(120)

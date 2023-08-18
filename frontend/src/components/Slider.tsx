@@ -1,6 +1,6 @@
 import RangeSlider from "react-bootstrap-range-slider"
 
-type SliderVal = {
+interface Props {
   min: number
   max: number
   step: number
@@ -10,10 +10,10 @@ type SliderVal = {
   onChange: (value: number) => void
 }
 
-export default function Slider(props: SliderVal): JSX.Element {
+export default function Slider(props: Props): JSX.Element {
   return (
     <>
-      <div className={"slider-title"}>{props.name}</div>
+      <h3>{props.name}</h3>
       <div className={"slider-description"}>{props.description}</div>
       <RangeSlider
         value={props.value}
