@@ -1,5 +1,6 @@
 import { SongData } from "../SongList/SongList"
 import styles from "./PushButton.module.css"
+import { API_BASE_ENDPOINT } from "../../utils/endpoints"
 
 export type SendingData = {
   tempo: number
@@ -10,23 +11,19 @@ export type SendingData = {
   tolerance: number
 }
 
-type ButtonProp = {
+interface Props {
   getter: () => SendingData
   setSongsValue: (SongsValue: SongData[]) => void
 }
 
-export default function PushButton(props: ButtonProp): JSX.Element {
+export default function PushButton(props: Props): JSX.Element {
   async function onClick(data: SendingData) {
-    const url = `${import.meta.env.VITE_API_ENDPOINT}/api/songs?tempo=${data.tempo}&energy=${data.energy}&speech=${data.speech}&valence=${data.valence}&mode=${data.mode}`
+    const url = `${API_BASE_ENDPOINT}/api/songs?tempo=${data.tempo}&energy=${data.energy}&speech=${
+      data.speech
+    }&valence=${data.valence}&mode=${data.mode}`
     const response = await fetch(url)
     const json = await response.json()
-    console.log(json)
-    // // keyを全部みる
-    // if (json.length !== 0) {
-    //   const keys = Object.keys(json[0])
-    //   console.log(keys)
-    // }
-    // SongData型に直す
+
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const songs: SongData[] = json.map((song: any, index: number) => {
       return {
@@ -38,7 +35,7 @@ export default function PushButton(props: ButtonProp): JSX.Element {
       }
     })
     props.setSongsValue(songs)
-  }  
+  }
 
   return (
     <div style={{ display: "flex", justifyContent: "center" }}>
