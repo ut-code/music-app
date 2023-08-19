@@ -44,8 +44,7 @@ async function onClick(data2: SendingData) {
   //   })
   const url = `${import.meta.env.VITE_API_ENDPOINT}/api/songs`
   const response = await fetch(url)
-  const data = response.json()
+  const data = await response.json()
   console.log(data)
-  console.log(response)
   
 }
