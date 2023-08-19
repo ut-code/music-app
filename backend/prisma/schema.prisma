@@ -21,4 +21,5 @@ model Music {
   music_url String?
   duration_ms Float?
   artist String?
+  song_name String?
 }
