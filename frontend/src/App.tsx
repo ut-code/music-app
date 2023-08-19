@@ -124,7 +124,7 @@ export default function App() {
                 どちらでもいい
               </label>
             </div>
-            ModeValue: {ModeValue}
+     
           </div>
         </div>
         <div className="howToUse">
