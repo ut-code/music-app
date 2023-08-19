@@ -5,6 +5,7 @@ import "./App.css"
 import SongList, { SongData } from "./components/SongList/SongList"
 import PushButton, { SendingData } from "./components/PushButton/PushButton"
 import Slider from "./components/Slider/Slider.tsx"
+import OpenSpotifyButton from "./components/OpenSpotifyButton/OpenSpotifyButton.tsx"
 
 export default function App() {
   const [TempoValue, setTempoState] = useState<number>(120)
