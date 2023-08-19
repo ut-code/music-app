@@ -1,14 +1,14 @@
 type Feature = {
-  preview_url: string;
-  tempo: number;
-  energy: number;
-  speech: number;
-  valence: number;
-  mode: number;
-  music_id: string;
-  duration_ms: number;
-  artist?: string;
-};
+  preview_url: string
+  tempo: number
+  energy: number
+  speech: number
+  valence: number
+  mode: number
+  music_id: string
+  duration_ms: number
+  artist?: string
+}
 
 export const fetchFeatures = async (
   token: string,
@@ -17,14 +17,14 @@ export const fetchFeatures = async (
   duration_ms: number,
   artist: string,
 ) => {
-  const url = `https://api.spotify.com/v1/audio-features/${songId}`;
+  const url = `https://api.spotify.com/v1/audio-features/${songId}`
   const response = await fetch(url, {
     method: "GET",
     headers: {
       Authorization: `Bearer ${token}`,
     },
-  });
-  const data = await response.json();
+  })
+  const data = await response.json()
   const features: Feature = {
     preview_url: preview_url,
     tempo: data.tempo,
@@ -35,6 +35,6 @@ export const fetchFeatures = async (
     music_id: songId,
     duration_ms: duration_ms,
     artist: artist,
-  };
-  return features;
-};
+  }
+  return features
+}

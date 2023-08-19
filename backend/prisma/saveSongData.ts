@@ -1,38 +1,35 @@
-import { PrismaClient } from "@prisma/client";
-import { generateAccessToken } from "../src/db/token";
-import { searchSongs } from "../src/db/searchSongs";
-import { songsList } from "../src/db/songsList";
-import dotenv from "dotenv";
+import { PrismaClient } from "@prisma/client"
+import { generateAccessToken } from "../src/db/token"
+import { searchSongs } from "../src/db/searchSongs"
+import { songsList } from "../src/db/songsList"
+import dotenv from "dotenv"
 
-const prisma = new PrismaClient();
-dotenv.config({ path: "../.env" });
-const SPOTIFY_CLIENT_ID = process.env.SPOTIFY_CLIENT_ID;
-const SPOTIFY_CLIENT_SECRET = process.env.SPOTIFY_CLIENT_SECRET;
+const prisma = new PrismaClient()
+dotenv.config({ path: "../.env" })
+const SPOTIFY_CLIENT_ID = process.env.SPOTIFY_CLIENT_ID
+const SPOTIFY_CLIENT_SECRET = process.env.SPOTIFY_CLIENT_SECRET
 
 type Feature = {
-  preview_url: string;
-  tempo: number;
-  energy: number;
-  speech: number;
-  valence: number;
-  mode: number;
-  music_id: string;
-  duration_ms: number;
-  artist?: string;
-};
+  preview_url: string
+  tempo: number
+  energy: number
+  speech: number
+  valence: number
+  mode: number
+  music_id: string
+  duration_ms: number
+  artist?: string
+}
 
 const fetchSongFeatures = async (): Promise<Feature[]> => {
-  const token = await generateAccessToken(
-    SPOTIFY_CLIENT_ID!,
-    SPOTIFY_CLIENT_SECRET!,
-  );
-  const searchTerms = songsList;
-  const songs = await searchSongs(token, searchTerms);
-  return songs;
-};
+  const token = await generateAccessToken(SPOTIFY_CLIENT_ID!, SPOTIFY_CLIENT_SECRET!)
+  const searchTerms = songsList
+  const songs = await searchSongs(token, searchTerms)
+  return songs
+}
 
 const saveMusicFeature = async () => {
-  const features: Feature[] = await fetchSongFeatures();
+  const features: Feature[] = await fetchSongFeatures()
   const formattedFeatures = features.map((feature) => ({
     music_id: feature.music_id,
     tempo: feature.tempo,
@@ -43,15 +40,15 @@ const saveMusicFeature = async () => {
     music_url: feature.preview_url != null ? feature.preview_url : "",
     duration_ms: feature.duration_ms != null ? feature.duration_ms : 0,
     artist: feature.artist != null ? feature.artist : "",
-  }));
+  }))
 
   try {
     await prisma.music.createMany({
       data: formattedFeatures,
-    });
+    })
   } catch (err) {
-    console.error("Error saving music features:", err);
+    console.error("Error saving music features:", err)
   }
-};
+}
 
-saveMusicFeature();
+saveMusicFeature()
