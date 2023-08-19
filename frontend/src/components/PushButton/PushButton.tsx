@@ -23,20 +23,29 @@ export default function PushButton(props: ButtonProp): JSX.Element {
   )
 }
 
-async function onClick(data: SendingData) {
-  //const json:string = JSON.stringify(data);
-  const url =
-    "url" +
-    `?tempo=${data.tempo}&energy=${data.energy}&speech=${data.speech}&valence=${data.valence}&mode=${data.mode}&
-    tolerance=${data.tolerance}`
 
-  // let response: any
-  await fetch(url, {
-    method: "GET",
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      console.log(data)
-      // let response = data
-    })
+
+async function onClick(data2: SendingData) {
+
+  // //const json:string = JSON.stringify(data);
+  // const url =
+  //   "url" +
+  //   `?tempo=${data.tempo}&energy=${data.energy}&speech=${data.speech}&valence=${data.valence}&mode=${data.mode}&
+  //   tolerance=${data.tolerance}`
+
+  // // let response: any
+  // await fetch(url, {
+  //   method: "GET",
+  // })
+  //   .then((response) => response.json())
+  //   .then((data) => {
+  //     console.log(data)
+  //     // let response = data
+  //   })
+  const url = `${import.meta.env.VITE_API_ENDPOINT}/api/songs`
+  const response = await fetch(url)
+  const data = response.json()
+  console.log(data)
+  console.log(response)
+  
 }

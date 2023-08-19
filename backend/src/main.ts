@@ -34,9 +34,19 @@ type Feature = {
 */
 
 app.get("/api/songs", async (req, res) => {
+  const tempo:number = 150;
+  const energy = 0.5;
+  const speech = 0.5;
+  const valence = 0.5;
+  const mode = 0;
+
+
+
   const music = await prisma.music.findMany();
   res.send(music);
+  console.log(music);
 })
+
 
 const PORT = 5050;
 
