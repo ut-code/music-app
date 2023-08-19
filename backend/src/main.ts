@@ -84,7 +84,6 @@ app.get("/api/songs", async (req, res) => {
 
   //返却
   res.send(music);
-  //console.log(music);
 });
 
 
