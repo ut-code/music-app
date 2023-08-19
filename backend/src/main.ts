@@ -15,6 +15,7 @@ const app = express();
 const prisma = new PrismaClient();
 
 app.use(cors({ origin: process.env.WEB_ORIGIN }));
+app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
@@ -36,14 +37,14 @@ type Feature = {
 app.get("/api/songs", async (req, res) => {
 
   // 許容誤差
-  const tolerance = 0.1
+  const tolerance:number = 0.1;
 
   // 楽曲パラメーター
-  const tempo = 149;
-  const energy = 0.28;
-  const speech = 0;
-  const valence = 0.85;
-  const mode = 1;
+  const tempo:number =  Number(req.query.tempo);
+  const energy = Number(req.query.energy);
+  const speech = Number(req.query.speech);
+  const valence = Number(req.query.valence);
+  const mode = Number(req.query.mode);
 
   // prismで取得する楽曲のフィルター (modeを除く)
   const filters = {
@@ -82,7 +83,7 @@ app.get("/api/songs", async (req, res) => {
 
   //返却
   res.send(music);
-  console.log(music);
+  //console.log(music);
 })
 
 
