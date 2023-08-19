@@ -4,7 +4,7 @@ import "./App.css"
 /* Components */
 import SongList, { SongData } from "./components/SongList/SongList"
 import PushButton, { SendingData } from "./components/PushButton/PushButton"
-import Slider from "./components/Slider.tsx"
+import Slider from "./components/Slider/Slider.tsx"
 
 export default function App() {
   const [TempoValue, setTempoState] = useState<number>(120)
@@ -94,7 +94,9 @@ export default function App() {
                 onChange={() => setModeState(1)}
                 checked={ModeValue === 1}
               />
-              <label htmlFor={"major"} className="label">長調</label>
+              <label htmlFor={"major"} className="label">
+                長調
+              </label>
             </div>
             <div className={`radio minor`}>
               <input
@@ -105,7 +107,9 @@ export default function App() {
                 onChange={() => setModeState(0)}
                 checked={ModeValue === 0}
               />
-              <label htmlFor={"minor"} className="label">短調</label>
+              <label htmlFor={"minor"} className="label">
+                短調
+              </label>
             </div>
             <div className={`radio whichever`}>
               <input
@@ -116,7 +120,9 @@ export default function App() {
                 onChange={() => setModeState(-1)}
                 checked={ModeValue === -1}
               />
-              <label htmlFor={"whichever"} className="label">どちらでもいい</label>
+              <label htmlFor={"whichever"} className="label">
+                どちらでもいい
+              </label>
             </div>
             ModeValue: {ModeValue}
           </div>
