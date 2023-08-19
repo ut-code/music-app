@@ -143,6 +143,9 @@ export default function App() {
             <SongList key={song.order} order={song.order} name={song.name} url={song.url} time={song.time} />
           ))}
         </div>
+        <div className="openSpotify">
+          <OpenSpotifyButton url="https://open.spotify.com/" />
+        </div>
       </div>
     </>
   )
