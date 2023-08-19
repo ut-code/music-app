@@ -1,25 +1,19 @@
 import { useState } from "react"
-import "./App.css"
-
-/* Components */
 import SongList, { SongData } from "./components/SongList/SongList"
 import PushButton, { SendingData } from "./components/PushButton/PushButton"
 import Slider from "./components/Slider/Slider.tsx"
 import OpenSpotifyButton from "./components/OpenSpotifyButton/OpenSpotifyButton.tsx"
+import "./App.css"
 
 export default function App() {
-  const [TempoValue, setTempoState] = useState<number>(120)
-  const [EnergyValue, setEnergyState] = useState<number>(0)
+  const [TempoValue, setTempoState] = useState<number>(110)
+  const [EnergyValue, setEnergyState] = useState<number>(0.75)
   const [SpeechValue, setSpeechState] = useState<number>(0)
-  const [ValenceValue, setValenceState] = useState<number>(0)
-  const [ModeValue, setModeState] = useState<number>(0)
+  const [ValenceValue, setValenceState] = useState<number>(0.6)
+  const [ModeValue, setModeState] = useState<number>(1)
   const [ErrValue] = useState<number>(0.1)
 
-  const [SongsValue] = useState<SongData[]>([
-    { order: "01", name: "ドラえもん", url: "http://localhost:3000", time: 120 },
-    { order: "02", name: "ドラえもん", url: "http://localhost:3000", time: 120 },
-    { order: "03", name: "ドラえもん", url: "http://localhost:3000", time: 120 },
-  ])
+  const [SongsValue, setSongsValue] = useState<SongData[]>([])
 
   const getData: () => SendingData = () => {
     const data: SendingData = {
@@ -41,10 +35,10 @@ export default function App() {
             name="Tempo"
             value={TempoValue}
             onChange={setTempoState}
-            min={1}
-            max={999}
+            min={50}
+            max={300}
             step={1}
-            description="曲のBPM (テンポ) を表します。1-999"
+            description="曲のBPM (テンポ) を表します。50-300"
           />
         </div>
         <div className="energy">
@@ -125,7 +119,6 @@ export default function App() {
                 どちらでもいい
               </label>
             </div>
-     
           </div>
         </div>
         <div className="howToUse">
@@ -136,12 +129,19 @@ export default function App() {
           </p>
         </div>
         <div className="push">
-          <PushButton getter={getData} />
+          <PushButton getter={getData} setSongsValue={setSongsValue} />
         </div>
         <div className="playlist">
           <h1 style={{ color: "#30A9DE", textAlign: "end", textDecoration: "none" }}>Playlist</h1>
           {SongsValue.map((song) => (
-            <SongList key={song.order} order={song.order} name={song.name} url={song.url} time={song.time} />
+            <SongList
+              key={song.order}
+              order={song.order}
+              name={song.name}
+              url={song.url}
+              time={song.time}
+              artist={song.artist}
+            />
           ))}
         </div>
         <div className="openSpotify">
