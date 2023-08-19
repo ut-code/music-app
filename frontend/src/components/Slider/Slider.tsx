@@ -21,16 +21,14 @@ export default function Slider(props: Props): JSX.Element {
       </div>
       <div className={styles.container}>
         <div className={styles.rangeSlider}>
-          {/* <span id="rs-bullet" className={styles.rsLabel} style={{ left: `${bulletPosition}px` }}>
-            {props.value}
-          </span> */}
           <input
             id="rs-range-line"
             className={styles.rsRange}
             type="range"
             value={props.value}
-            min="0"
-            max="200"
+            min={props.min}
+            max={props.max}
+            step={props.step}
             onChange={(changeEvent) => props.onChange(+changeEvent.target.value)}
           />
         </div>
