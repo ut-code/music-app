@@ -12,11 +12,13 @@ datasource db {
 
 model Music {
   id       Int     @id @default(autoincrement()) @unique
-  music_id String  @unique
-  tempo     Float
+  music_id String
+  tempo     Float?
   energy    Float
   speech    Float
   valence   Float
   mode      Int
   music_url String?
+  duration_ms Float?
+  artist String?
 }

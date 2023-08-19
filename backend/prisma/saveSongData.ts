@@ -16,7 +16,9 @@ type Feature = {
     speech: number,
     valence: number,
     mode: number,
-    music_id: string
+    music_id: string,
+    duration_ms: number,
+    artist?: string,
 }
 
 const fetchSongFeatures = async (): Promise<Feature[]> => {
@@ -29,16 +31,17 @@ const fetchSongFeatures = async (): Promise<Feature[]> => {
 const saveMusicFeature = async () => {
     const features: Feature[] = await fetchSongFeatures();
     const formattedFeatures = features.map(feature => ({
-        music_id: feature.music_id,  // Include the music_id here
+        music_id: feature.music_id,
         tempo: feature.tempo,
-        energy: feature.energy,
-        speech: feature.speech !== undefined ? feature.speech : 0,
-        valence: feature.valence,
-        mode: feature.mode,
-        music_url: feature.preview_url,
+        energy: feature.energy != null ? feature.energy : 0,
+        speech: feature.speech != null ? feature.speech : 0,
+        valence: feature.valence != null ? feature.valence : 0,
+        mode: feature.mode != null ? feature.mode : 0,
+        music_url: feature.preview_url != null ? feature.preview_url : "",
+        duration_ms: feature.duration_ms != null ? feature.duration_ms : 0,
+        artist: feature.artist != null ? feature.artist : ""
     }));
-    
-    
+
     try {
         await prisma.music.createMany({
             data: formattedFeatures
