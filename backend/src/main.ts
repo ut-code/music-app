@@ -34,15 +34,53 @@ type Feature = {
 */
 
 app.get("/api/songs", async (req, res) => {
-  const tempo:number = 150;
-  const energy = 0.5;
-  const speech = 0.5;
-  const valence = 0.5;
-  const mode = 0;
 
+  // 許容誤差
+  const tolerance = 0.1
 
+  // 楽曲パラメーター
+  const tempo = 149;
+  const energy = 0.28;
+  const speech = 0;
+  const valence = 0.85;
+  const mode = 1;
 
-  const music = await prisma.music.findMany();
+  // prismで取得する楽曲のフィルター (modeを除く)
+  const filters = {
+    where: {
+      tempo: {
+        gte:tempo * (1-tolerance),
+        lte:tempo * (1+tolerance)
+      },
+      energy: {
+        gte:energy * (1-tolerance),
+        lte:energy * (1+tolerance)
+      },
+      speech: {
+        gte:speech * (1-tolerance),
+        lte:speech * (1+tolerance)
+      },
+      valence: {
+        gte:valence * (1-tolerance),
+        lte:valence * (1+tolerance)
+      },
+      mode : {
+        gte:0,
+        lte:1
+      }
+    }
+  }
+
+  // modeが0以上の場合は 最小値、最大値を共にユーザーが指定した値とする (同値のもののみ)
+  if(mode>=0){
+    filters.where.mode.gte = mode;
+    filters.where.mode.lte = mode;
+  }
+
+  // 取得
+  const music = await prisma.music.findMany(filters);
+
+  //返却
   res.send(music);
   console.log(music);
 })
