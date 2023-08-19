@@ -10,7 +10,7 @@ services:
     envVars:
       - key: PORT
         value: 5050
-      - key: DATABASE_URL
-        sync: false
       - key: WEB_ORIGIN
+        value: https://ut-code.github.io
+      - key: DATABASE_URL
         sync: false
