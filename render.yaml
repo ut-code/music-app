@@ -1,14 +1,5 @@
 services:
   - type: web
-    name: music-app
-    env: static
-    rootDir: frontend
-    buildCommand: npm ci && npm run build
-    staticPublishPath: dist
-    envVars:
-      - key: VITE_API_ENDPOINT
-        sync: false
-  - type: web
     name: music-app-backend
     env: node
     region: singapore
