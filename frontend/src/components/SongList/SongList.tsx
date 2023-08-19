@@ -13,14 +13,14 @@ export type SongData = {
 export default function SongList(props: SongData) {
   const [musicData, setMusicData] = useState<Music[]>([])
 
-  useEffect(() => {
-    async function tmp(){
-      return await getAllMusic()
-    }
-    tmp().then((music)=>{
-      setMusicData(music)
-    })
-  }, [])
+  // useEffect(() => {
+  //   async function tmp(){
+  //     return await getAllMusic()
+  //   }
+  //   tmp().then((music)=>{
+  //     setMusicData(music)
+  //   })
+  // }, [])
 
   return (
     <div className={styles.songList}>
