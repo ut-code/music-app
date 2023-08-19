@@ -1,6 +1,7 @@
-## Music App
+## music-app
 
-https://music-app-5wol.onrender.com/
+:link:[https://music-app-5wol.onrender.com/](https://ut-code.github.io/music-app/)
+その日の気分にあった作業用BGMを生成してくれるアプリ
 
 ## Setup
 
