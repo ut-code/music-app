@@ -5,6 +5,7 @@ export type SongData = {
   name: string
   url: string
   time: number
+  artist: string
 }
 
 export default function SongList(props: SongData) {
@@ -15,7 +16,7 @@ export default function SongList(props: SongData) {
         <div className={styles.order}>{props.order}</div>
         <div className={styles.name}>{props.name}</div>
         <div className={styles.artistTime}>
-          {props.url}・{props.time}
+          {props.artist}・{props.time}
         </div>
       </div>
     </div>

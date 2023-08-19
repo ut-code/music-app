@@ -15,11 +15,7 @@ export default function App() {
   const [ModeValue, setModeState] = useState<number>(0)
   const [ErrValue] = useState<number>(0.1)
 
-  const [SongsValue] = useState<SongData[]>([
-    { order: "01", name: "ドラえもん", url: "http://localhost:3000", time: 120 },
-    { order: "02", name: "ドラえもん", url: "http://localhost:3000", time: 120 },
-    { order: "03", name: "ドラえもん", url: "http://localhost:3000", time: 120 },
-  ])
+  const [SongsValue, setSongsValue] = useState<SongData[]>([])
 
   const getData: () => SendingData = () => {
     const data: SendingData = {
@@ -136,12 +132,12 @@ export default function App() {
           </p>
         </div>
         <div className="push">
-          <PushButton getter={getData} />
+          <PushButton getter={getData} setSongsValue={setSongsValue} />
         </div>
         <div className="playlist">
           <h1 style={{ color: "#30A9DE", textAlign: "end", textDecoration: "none" }}>Playlist</h1>
           {SongsValue.map((song) => (
-            <SongList key={song.order} order={song.order} name={song.name} url={song.url} time={song.time} />
+            <SongList key={song.order} order={song.order} name={song.name} url={song.url} time={song.time} artist={song.artist} />
           ))}
         </div>
         <div className="openSpotify">
