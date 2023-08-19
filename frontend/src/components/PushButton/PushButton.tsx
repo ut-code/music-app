@@ -1,5 +1,6 @@
 import { SongData } from "../SongList/SongList"
 import styles from "./PushButton.module.css"
+import { API_BASE_ENDPOINT } from "../../utils/endpoints"
 
 export type SendingData = {
   tempo: number
@@ -17,7 +18,7 @@ interface Props {
 
 export default function PushButton(props: Props): JSX.Element {
   async function onClick(data: SendingData) {
-    const url = `${import.meta.env.VITE_API_ENDPOINT}/api/songs?tempo=${data.tempo}&energy=${data.energy}&speech=${
+    const url = `${API_BASE_ENDPOINT}/api/songs?tempo=${data.tempo}&energy=${data.energy}&speech=${
       data.speech
     }&valence=${data.valence}&mode=${data.mode}`
     const response = await fetch(url)
