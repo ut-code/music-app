@@ -16,9 +16,9 @@ export default function App() {
   const [ErrValue] = useState<number>(0.1)
 
   const [SongsValue] = useState<SongData[]>([
-    {id:"debug1", order: "01", name: "ドラえもん", url: "http://localhost:3000", time: 120 },
-    {id:"debug2", order: "02", name: "ドラえもん", url: "http://localhost:3000", time: 120 },
-    {id:"debug3", order: "03", name: "ドラえもん", url: "http://localhost:3000", time: 120 },
+    { id: "debug1", order: "01", name: "ドラえもん", url: "http://localhost:3000", time: 120 },
+    { id: "debug2", order: "02", name: "ドラえもん", url: "http://localhost:3000", time: 120 },
+    { id: "debug3", order: "03", name: "ドラえもん", url: "http://localhost:3000", time: 120 },
   ])
 
   const getData: () => SendingData = () => {
@@ -125,7 +125,6 @@ export default function App() {
                 どちらでもいい
               </label>
             </div>
-     
           </div>
         </div>
         <div className="howToUse">
@@ -141,11 +140,18 @@ export default function App() {
         <div className="playlist">
           <h1 style={{ color: "#30A9DE", textAlign: "end", textDecoration: "none" }}>Playlist</h1>
           {SongsValue.map((song) => (
-            <SongList key={song.order} order={song.order} name={song.name} url={song.url} time={song.time} />
+            <SongList
+              id={song.id}
+              key={song.order}
+              order={song.order}
+              name={song.name}
+              url={song.url}
+              time={song.time}
+            />
           ))}
         </div>
         <div className="openSpotify">
-          <OpenSpotifyButton url="https://open.spotify.com/" />
+          <OpenSpotifyButton url="https://open.spotify.com/" songData={SongsValue} />
         </div>
       </div>
     </>
