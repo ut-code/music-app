@@ -1,3 +1,4 @@
+import { SongData } from "../SongList/SongList"
 import styles from "./PushButton.module.css"
 
 export type SendingData = {
@@ -11,9 +12,18 @@ export type SendingData = {
 
 type ButtonProp = {
   getter: () => SendingData
+  setSongsValue: (SongsValue: SongData[]) => void
 }
 
 export default function PushButton(props: ButtonProp): JSX.Element {
+  async function onClick(data: SendingData) {
+    const url = `${import.meta.env.VITE_API_ENDPOINT}/api/songs?tempo=${data.tempo}&energy=${data.energy}&speech=${data.speech}&valence=${data.valence}&mode=${data.mode}`
+    const response = await fetch(url)
+    const json = await response.json()
+    console.log(json)
+    // props.setSongsValue()
+  }  
+
   return (
     <div style={{ display: "flex", justifyContent: "center" }}>
       <button onClick={() => onClick(props.getter())} className={styles.button013}>
@@ -21,31 +31,4 @@ export default function PushButton(props: ButtonProp): JSX.Element {
       </button>
     </div>
   )
-}
-
-
-
-async function onClick(data: SendingData) {
-
-
-  // //const json:string = JSON.stringify(data);
-  // const url =
-  //   "url" +
-  //   `?tempo=${data.tempo}&energy=${data.energy}&speech=${data.speech}&valence=${data.valence}&mode=${data.mode}&
-  //   tolerance=${data.tolerance}`
-
-  // // let response: any
-  // await fetch(url, {
-  //   method: "GET",
-  // })
-  //   .then((response) => response.json())
-  //   .then((data) => {
-  //     console.log(data)
-  //     // let response = data
-  //   })
-  const url = `${import.meta.env.VITE_API_ENDPOINT}/api/songs?tempo=${data.tempo}&energy=${data.energy}&speech=${data.speech}&valence=${data.valence}&mode=${data.mode}`
-  const response = await fetch(url)
-  //const data = await response.json()
-  console.log(await response.json())
-  
 }

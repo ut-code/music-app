@@ -37,7 +37,7 @@ type Feature = {
 app.get("/api/songs", async (req, res) => {
 
   // 許容誤差
-  const tolerance:number = 0.1;
+  const tolerance:number = 1;
 
   // 楽曲パラメーター
   const tempo:number =  Number(req.query.tempo);
@@ -69,7 +69,8 @@ app.get("/api/songs", async (req, res) => {
         gte:0,
         lte:1
       }
-    }
+    },
+    take: 8,
   }
 
   // modeが0以上の場合は 最小値、最大値を共にユーザーが指定した値とする (同値のもののみ)
