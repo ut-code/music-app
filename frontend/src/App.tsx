@@ -8,11 +8,11 @@ import Slider from "./components/Slider/Slider.tsx"
 import OpenSpotifyButton from "./components/OpenSpotifyButton/OpenSpotifyButton.tsx"
 
 export default function App() {
-  const [TempoValue, setTempoState] = useState<number>(120)
-  const [EnergyValue, setEnergyState] = useState<number>(0)
+  const [TempoValue, setTempoState] = useState<number>(110)
+  const [EnergyValue, setEnergyState] = useState<number>(0.75)
   const [SpeechValue, setSpeechState] = useState<number>(0)
-  const [ValenceValue, setValenceState] = useState<number>(0)
-  const [ModeValue, setModeState] = useState<number>(0)
+  const [ValenceValue, setValenceState] = useState<number>(0.6)
+  const [ModeValue, setModeState] = useState<number>(1)
   const [ErrValue] = useState<number>(0.1)
 
   const [SongsValue, setSongsValue] = useState<SongData[]>([])
@@ -37,10 +37,10 @@ export default function App() {
             name="Tempo"
             value={TempoValue}
             onChange={setTempoState}
-            min={1}
-            max={999}
+            min={50}
+            max={300}
             step={1}
-            description="曲のBPM (テンポ) を表します。1-999"
+            description="曲のBPM (テンポ) を表します。50-300"
           />
         </div>
         <div className="energy">
