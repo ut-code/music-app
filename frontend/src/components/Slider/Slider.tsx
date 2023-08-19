@@ -15,22 +15,6 @@ export default function Slider(props: Props): JSX.Element {
 
   return (
     <>
-      {/* <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-        <h3>{props.name}</h3>
-        <p>{props.description}</p>
-      </div>
-      <div style={{ width: "100%" }}>
-        <input
-          type="range"
-          className={styles.range}
-          min={props.min}
-          max={props.max}
-          step={props.step}
-          value={props.value}
-          onChange={(changeEvent) => props.onChange(+changeEvent.target.value)}
-        />
-        {props.value}
-      </div> */}
       <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
         <h3>{props.name}</h3>
         <p>{props.description}</p>
@@ -50,12 +34,7 @@ export default function Slider(props: Props): JSX.Element {
             onChange={(changeEvent) => props.onChange(+changeEvent.target.value)}
           />
         </div>
-
-        {/* <div className={styles.boxMinMax}>
-          <span>0</span>
-          <span>200</span>
-        </div> */}
-        {props.value}
+        <p>{props.value}</p>
       </div>
     </>
   )
