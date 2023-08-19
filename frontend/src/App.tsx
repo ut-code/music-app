@@ -16,9 +16,9 @@ export default function App() {
   const [ErrValue] = useState<number>(0.1)
 
   const [SongsValue] = useState<SongData[]>([
-    { order: "01", name: "ドラえもん", url: "http://localhost:3000", time: 120 },
-    { order: "02", name: "ドラえもん", url: "http://localhost:3000", time: 120 },
-    { order: "03", name: "ドラえもん", url: "http://localhost:3000", time: 120 },
+    {id:"debug1", order: "01", name: "ドラえもん", url: "http://localhost:3000", time: 120 },
+    {id:"debug2", order: "02", name: "ドラえもん", url: "http://localhost:3000", time: 120 },
+    {id:"debug3", order: "03", name: "ドラえもん", url: "http://localhost:3000", time: 120 },
   ])
 
   const getData: () => SendingData = () => {
