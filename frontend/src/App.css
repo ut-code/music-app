@@ -11,7 +11,7 @@
     "energy mode playlist"
     "speech mode playlist"
     "valence . playlist"
-    "howToUse push playlist";
+    "howToUse push openSpotify";
 
   margin: 0;
   padding: 15px 40px;
@@ -52,6 +52,10 @@
 
 .playlist {
   grid-area: playlist;
+}
+
+.openSpotify {
+  grid-area: openSpotify;
 }
 
 h1 {
