@@ -18,11 +18,20 @@ jobs:
         with:
           node-version: latest
 
-      - name: Install npm dependencies
+      - name: Install npm dependencies for frontend
         working-directory: ./frontend
         run: npm ci
         shell: bash
 
-      - name: Build
+      - name: Build frontend
         working-directory: ./frontend
+        run: npm run build
+
+      - name: Install npm dependencies for backend
+        working-directory: ./backend
+        run: npm ci
+        shell: bash
+
+      - name: Build backend
+        working-directory: ./backend
         run: npm run build
