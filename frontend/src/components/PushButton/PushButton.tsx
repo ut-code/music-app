@@ -17,6 +17,18 @@ interface Props {
 }
 
 export default function PushButton(props: Props): JSX.Element {
+  function msToMinSec(ms: number): string {
+    const totalSeconds = Math.floor(ms / 1000);
+    const minutes = Math.floor(totalSeconds / 60);
+    const seconds = totalSeconds % 60;
+    
+    // パディングを追加して2桁にする（例： "01"）
+    const paddedMinutes = String(minutes).padStart(2, '0');
+    const paddedSeconds = String(seconds).padStart(2, '0');
+  
+    return `${paddedMinutes}:${paddedSeconds}`;
+  }
+
   async function onClick(data: SendingData) {
     const url = `${API_BASE_ENDPOINT}/api/songs?tempo=${data.tempo}&energy=${data.energy}&speech=${
       data.speech
@@ -30,7 +42,7 @@ export default function PushButton(props: Props): JSX.Element {
         order: String(index + 1),
         artist: song.artist,
         music_id: song.music_id,
-        time: song.duration_ms,
+        time: msToMinSec(song.duration_ms),
         name: song.song_name,
       }
     })
