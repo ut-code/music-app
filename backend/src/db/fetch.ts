@@ -10,9 +10,12 @@ const SPOTIFY_CLIENT_ID = process.env.SPOTIFY_CLIENT_ID;
 const SPOTIFY_CLIENT_SECRET = process.env.SPOTIFY_CLIENT_SECRET;
 
 const main = async () => {
-    const token = await generateAccessToken(SPOTIFY_CLIENT_ID!, SPOTIFY_CLIENT_SECRET!);
-    const searchTerms = songsList;
-    const songs = await searchSongs(token, searchTerms);
-}
+  const token = await generateAccessToken(
+    SPOTIFY_CLIENT_ID!,
+    SPOTIFY_CLIENT_SECRET!,
+  );
+  const searchTerms = songsList;
+  const songs = await searchSongs(token, searchTerms);
+};
 
-main()
+main();
