@@ -34,7 +34,7 @@ export default function PushButton(props: ButtonProp): JSX.Element {
         artist: song.artist,
         music_id: song.music_id,
         time: song.duration_ms,
-        name: "",
+        name: song.song_name,
       }
     })
     props.setSongsValue(songs)

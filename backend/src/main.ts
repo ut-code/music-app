@@ -37,7 +37,7 @@ type Feature = {
 app.get("/api/songs", async (req, res) => {
 
   // 許容誤差
-  const tolerance:number = 0.2;
+  const tolerance:number = 200;
 
   // 楽曲パラメーター
   const tempo:number =  Number(req.query.tempo);
