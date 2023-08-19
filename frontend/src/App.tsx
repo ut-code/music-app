@@ -1,11 +1,9 @@
 import { useState } from "react"
-import "./App.css"
-
-/* Components */
 import SongList, { SongData } from "./components/SongList/SongList"
 import PushButton, { SendingData } from "./components/PushButton/PushButton"
 import Slider from "./components/Slider/Slider.tsx"
 import OpenSpotifyButton from "./components/OpenSpotifyButton/OpenSpotifyButton.tsx"
+import "./App.css"
 
 export default function App() {
   const [TempoValue, setTempoState] = useState<number>(120)
