@@ -4,8 +4,7 @@ import "./App.css"
 /* Components */
 import SongList, { SongData } from "./components/SongList/SongList"
 import PushButton, { SendingData } from "./components/PushButton/PushButton"
-import Slider from "./components/Slider.tsx"
-// import RangeSlider2 from "./components/RangeSlider2.tsx"
+import Slider from "./components/Slider/Slider.tsx"
 
 export default function App() {
   const [TempoValue, setTempoState] = useState<number>(120)
@@ -14,10 +13,6 @@ export default function App() {
   const [ValenceValue, setValenceState] = useState<number>(0)
   const [ModeValue, setModeState] = useState<number>(0)
   const [ErrValue] = useState<number>(0.1)
-
-  //range2のためのState
-  // const [minValue, setMinState] = useState<number>(0.1)
-  // const [maxValue, setMaxState] = useState<number>(0.2)
 
   const [SongsValue] = useState<SongData[]>([
     { order: "01", name: "ドラえもん", url: "http://localhost:3000", time: 120 },
@@ -85,15 +80,6 @@ export default function App() {
           />
         </div>
         <div className="mode">
-          {/* <Slider
-            name="Mode"
-            value={ModeValue}
-            onChange={setModeState}
-            min={0}
-            max={1}
-            step={1}
-            description="曲が長調(1)か短調(0)かを表します。0または1"
-          /> */}
           <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
             <h3>Mode</h3>
             <p>曲が長調・短調を表します。0または1</p>
@@ -108,7 +94,9 @@ export default function App() {
                 onChange={() => setModeState(1)}
                 checked={ModeValue === 1}
               />
-              <label htmlFor={"major"} className="label">長調</label>
+              <label htmlFor={"major"} className="label">
+                長調
+              </label>
             </div>
             <div className={`radio minor`}>
               <input
@@ -119,7 +107,9 @@ export default function App() {
                 onChange={() => setModeState(0)}
                 checked={ModeValue === 0}
               />
-              <label htmlFor={"minor"} className="label">短調</label>
+              <label htmlFor={"minor"} className="label">
+                短調
+              </label>
             </div>
             <div className={`radio whichever`}>
               <input
@@ -130,20 +120,13 @@ export default function App() {
                 onChange={() => setModeState(-1)}
                 checked={ModeValue === -1}
               />
-              <label htmlFor={"whichever"} className="label">どちらでもいい</label>
+              <label htmlFor={"whichever"} className="label">
+                どちらでもいい
+              </label>
             </div>
             ModeValue: {ModeValue}
           </div>
         </div>
-        {/* <Slider
-              name="Err"
-              value={ErrValue}
-              onChange={setErrState}
-              min={0}
-              max={1}
-              step={0.01}
-              description="指定した値からのずれをどの程度許容するかを表します。"
-            /> */}
         <div className="howToUse">
           <h3>How to Use</h3>
           <p>
