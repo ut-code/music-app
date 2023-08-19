@@ -31,12 +31,15 @@ export default function Slider(props: Props): JSX.Element {
         />
         {props.value}
       </div> */}
+      <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+        <h3>{props.name}</h3>
+        <p>{props.description}</p>
+      </div>
       <div className={styles.container}>
         <div className={styles.rangeSlider}>
-          <span id="rs-bullet" className={styles.rsLabel} style={{ left: `${bulletPosition}px` }}>
+          {/* <span id="rs-bullet" className={styles.rsLabel} style={{ left: `${bulletPosition}px` }}>
             {props.value}
-            <span className={styles.unit}>kg</span>
-          </span>
+          </span> */}
           <input
             id="rs-range-line"
             className={styles.rsRange}
@@ -48,10 +51,11 @@ export default function Slider(props: Props): JSX.Element {
           />
         </div>
 
-        <div className={styles.boxMinMax}>
+        {/* <div className={styles.boxMinMax}>
           <span>0</span>
           <span>200</span>
-        </div>
+        </div> */}
+        {props.value}
       </div>
     </>
   )

@@ -12,14 +12,10 @@
   display: flex;
   justify-content: space-between;
   font-size: 20px;
-  color: #ffffff;
+  color: #30A9DE;
   span:first-child {
     margin-left: 10px;
   }
-}
-
-.rangeSlider {
-  margin-top: 30vh;
 }
 
 .rsRange {
@@ -36,7 +32,7 @@
     height: 1px;
     cursor: pointer;
     box-shadow: none;
-    background: #ffffff;
+    background: #30A9DE;
     border-radius: 0px;
     border: 0px solid #010101;
   }
@@ -46,35 +42,37 @@
     height: 1px;
     cursor: pointer;
     box-shadow: none;
-    background: #ffffff;
+    background: #30A9DE;
     border-radius: 0px;
     border: 0px solid #010101;
   }
 
   &::-webkit-slider-thumb {
     box-shadow: none;
-    border: 0px solid #ffffff;
+    border: 0px solid #30A9DE;
     box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
     height: 42px;
     width: 22px;
     border-radius: 22px;
-    background: rgba(255, 255, 255, 1);
+    background: rgba(48, 169, 222, 1);
     cursor: pointer;
     appearance: none;
     margin-top: -20px;
+    z-index: 2;
   }
 
   &::-moz-range-thumb {
     box-shadow: none;
-    border: 0px solid #ffffff;
+    border: 0px solid #30A9DE;
     box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
     height: 42px;
     width: 22px;
     border-radius: 22px;
-    background: rgba(255, 255, 255, 1);
+    background: rgba(48, 169, 222, 1);
     cursor: pointer;
     appearance: none;
     margin-top: -20px;
+    z-index: 2;
   }
 
   &::-moz-focus-outer {
@@ -95,10 +93,10 @@
   font-weight: bold;
   padding-top: 22px;
   box-sizing: border-box;
-  border: 2px solid #fff;
+  border: 2px solid #30A9DE;
   margin-top: 20px;
   margin-left: -38px;
-  color: #fff;
+  color: #30A9DE;
   font-style: normal;
   font-weight: normal;
   line-height: normal;
