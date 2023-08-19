@@ -26,6 +26,7 @@ export default function PushButton(props: ButtonProp): JSX.Element {
 
 
 async function onClick(data2: SendingData) {
+  console.log(data2)
 
   // //const json:string = JSON.stringify(data);
   // const url =
