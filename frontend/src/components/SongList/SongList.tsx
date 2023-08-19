@@ -5,6 +5,7 @@ export type SongData = {
   name: string
   url: string
   time: number
+  artist: string
 }
 
 export default function SongList(props: SongData) {

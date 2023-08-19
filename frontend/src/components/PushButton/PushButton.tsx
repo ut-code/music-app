@@ -21,20 +21,25 @@ export default function PushButton(props: ButtonProp): JSX.Element {
     const response = await fetch(url)
     const json = await response.json()
     console.log(json)
-    // keyを全部みる
-    if (json.length !== 0) {
-      const keys = Object.keys(json[0])
-      console.log(keys)
-    }
-    // SongData型に直す
-    // const songs: SongData[] = json.map((song: any, index) => {
-    //   return {
-    //     order: String(index + 1),
-    //     name: song.
-    //   }
+    // // keyを全部みる
+    // if (json.length !== 0) {
+    //   const keys = Object.keys(json[0])
+    //   console.log(keys)
     // }
+    // SongData型に直す
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const songs: SongData[] = json.map((song: any, index: number) => {
+      return {
+        order: String(index + 1),
+        artist: song.artist,
+        music_id: song.music_id,
+        time: song.duration_ms,
+        name: "",
+      }
+    })
+    
 
-    // props.setSongsValue()
+    props.setSongsValue(songs)
   }  
 
   return (

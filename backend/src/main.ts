@@ -49,28 +49,28 @@ app.get("/api/songs", async (req, res) => {
   // prismで取得する楽曲のフィルター (modeを除く)
   const filters = {
     where: {
-      tempo: {
-        gte:tempo * (1-tolerance),
-        lte:tempo * (1+tolerance)
-      },
-      energy: {
-        gte:energy * (1-tolerance),
-        lte:energy * (1+tolerance)
-      },
-      speech: {
-        gte:speech * (1-tolerance),
-        lte:speech * (1+tolerance)
-      },
-      valence: {
-        gte:valence * (1-tolerance),
-        lte:valence * (1+tolerance)
-      },
+      // tempo: {
+      //   gte:tempo * (1-tolerance),
+      //   lte:tempo * (1+tolerance)
+      // },
+      // energy: {
+      //   gte:energy * (1-tolerance),
+      //   lte:energy * (1+tolerance)
+      // },
+      // speech: {
+      //   gte:speech * (1-tolerance),
+      //   lte:speech * (1+tolerance)
+      // },
+      // valence: {
+      //   gte:valence * (1-tolerance),
+      //   lte:valence * (1+tolerance)
+      // },
       mode : {
         gte:0,
         lte:1
       },
     },
-    // take: 8,
+    take: 8,
   }
 
   // modeが0以上の場合は 最小値、最大値を共にユーザーが指定した値とする (同値のもののみ)
