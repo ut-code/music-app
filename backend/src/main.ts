@@ -68,9 +68,9 @@ app.get("/api/songs", async (req, res) => {
       mode : {
         gte:0,
         lte:1
-      }
+      },
     },
-    take: 8,
+    // take: 8,
   }
 
   // modeが0以上の場合は 最小値、最大値を共にユーザーが指定した値とする (同値のもののみ)
