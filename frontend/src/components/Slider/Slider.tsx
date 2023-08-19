@@ -11,7 +11,7 @@ interface Props {
 }
 
 export default function Slider(props: Props): JSX.Element {
-  const bulletPosition = (props.value / 200) * 578
+  // const bulletPosition = (props.value / 200) * 578
 
   return (
     <>
