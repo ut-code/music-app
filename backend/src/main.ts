@@ -36,9 +36,6 @@ type Feature = {
 
 app.get("/api/songs", async (req, res) => {
 
-
-  const d = JSON.stringify(req.query);
-
   // 許容誤差
   const tolerance:number = 0.1;
 
