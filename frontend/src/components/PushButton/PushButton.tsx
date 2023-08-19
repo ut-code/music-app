@@ -37,8 +37,6 @@ export default function PushButton(props: ButtonProp): JSX.Element {
         name: "",
       }
     })
-    
-
     props.setSongsValue(songs)
   }  
 
