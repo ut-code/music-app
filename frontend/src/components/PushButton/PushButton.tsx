@@ -20,7 +20,15 @@ export default function PushButton(props: ButtonProp): JSX.Element {
     const url = `${import.meta.env.VITE_API_ENDPOINT}/api/songs?tempo=${data.tempo}&energy=${data.energy}&speech=${data.speech}&valence=${data.valence}&mode=${data.mode}`
     const response = await fetch(url)
     const json = await response.json()
-    console.log(json)
+    console.log(json[0])
+    // SongData型に直す
+    // const songs: SongData[] = json.map((song: any, index) => {
+    //   return {
+    //     order: String(index + 1),
+    //     name: song.
+    //   }
+    // }
+
     // props.setSongsValue()
   }  
 
