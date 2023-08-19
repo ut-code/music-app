@@ -16,7 +16,7 @@ const prisma = new PrismaClient();
 
 app.use(cors({ origin: process.env.WEB_ORIGIN }));
 app.use(express.urlencoded({ extended: true }));
-
+app.use(express.json())
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
@@ -37,33 +37,34 @@ type Feature = {
 app.get("/api/songs", async (req, res) => {
 
   // 許容誤差
-  const tolerance:number = 0.1;
+  const tolerance:number = 0.2;
 
   // 楽曲パラメーター
   const tempo:number =  Number(req.query.tempo);
-  const energy:number = Number(req.query.energy);
-  const speech:number = Number(req.query.speech);
-  const valence:number = Number(req.query.valence);
-  const mode:number = Number(req.query.mode);
+  const energy = Number(req.query.energy);
+  const speech = Number(req.query.speech);
+  const valence = Number(req.query.valence);
+  const mode = Number(req.query.mode);
 
   // prismで取得する楽曲のフィルター (modeを除く)
   const filters = {
+    take:8,
     where: {
       tempo: {
-        gte:tempo * (1-tolerance),
-        lte:tempo * (1+tolerance)
+        gte:tempo - tolerance*100,
+        lte:tempo + tolerance*100
       },
       energy: {
-        gte:energy * (1-tolerance),
-        lte:energy * (1+tolerance)
+        gte:energy - tolerance,
+        lte:energy + tolerance
       },
       speech: {
-        gte:speech * (1-tolerance),
-        lte:speech * (1+tolerance)
+        gte:speech - tolerance,
+        lte:speech + tolerance
       },
       valence: {
-        gte:valence * (1-tolerance),
-        lte:valence * (1+tolerance)
+        gte:valence - tolerance,
+        lte:valence + tolerance
       },
       mode : {
         gte:0,
@@ -84,22 +85,13 @@ app.get("/api/songs", async (req, res) => {
   //返却
   res.send(music);
   //console.log(music);
-})
-
-
-app.post("/app/create-playlist", async(req,res) =>{
-  const list_fordebug = [
-    "7Ao5rjmODtihKQXJ023Of9",
-    "7hxHWCCAIIxFLCzvDgnQHX",
-    "7x8dCjCr0x6x2lXKujYD34",
-    "4lPEdvGVptFXUMk8DKMLnF",
-    "2hxE4LWxgTLgPmDvBWxtPd",
-    "27alDxO5g3jp6kDG0RHlYV",
-    "0h9VlXphgiAHN1gQ9xtnNa"
-  ];
-  res.send(list_fordebug);
-  console.log(req);
 });
+
+
+app.post("/api/create-playlist",async(req,res)=>{
+  console.log(req.body);
+});
+
 
 const PORT = 5050;
 
