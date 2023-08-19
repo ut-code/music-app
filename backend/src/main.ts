@@ -41,10 +41,10 @@ app.get("/api/songs", async (req, res) => {
 
   // 楽曲パラメーター
   const tempo:number =  Number(req.query.tempo);
-  const energy = Number(req.query.energy);
-  const speech = Number(req.query.speech);
-  const valence = Number(req.query.valence);
-  const mode = Number(req.query.mode);
+  const energy:number = Number(req.query.energy);
+  const speech:number = Number(req.query.speech);
+  const valence:number = Number(req.query.valence);
+  const mode:number = Number(req.query.mode);
 
   // prismで取得する楽曲のフィルター (modeを除く)
   const filters = {
@@ -86,6 +86,20 @@ app.get("/api/songs", async (req, res) => {
   //console.log(music);
 })
 
+
+app.post("/app/create-playlist", async(req,res) =>{
+  const list_fordebug = [
+    "7Ao5rjmODtihKQXJ023Of9",
+    "7hxHWCCAIIxFLCzvDgnQHX",
+    "7x8dCjCr0x6x2lXKujYD34",
+    "4lPEdvGVptFXUMk8DKMLnF",
+    "2hxE4LWxgTLgPmDvBWxtPd",
+    "27alDxO5g3jp6kDG0RHlYV",
+    "0h9VlXphgiAHN1gQ9xtnNa"
+  ];
+  res.send(list_fordebug);
+  console.log(req);
+});
 
 const PORT = 5050;
 
