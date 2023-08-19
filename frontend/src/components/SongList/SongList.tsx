@@ -9,7 +9,6 @@ export type SongData = {
 }
 
 export default function SongList(props: SongData) {
-
   return (
     <div className={styles.songList}>
       <div className={styles.container}>

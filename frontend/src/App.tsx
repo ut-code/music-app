@@ -121,7 +121,6 @@ export default function App() {
                 どちらでもいい
               </label>
             </div>
-     
           </div>
         </div>
         <div className="howToUse">
@@ -137,7 +136,14 @@ export default function App() {
         <div className="playlist">
           <h1 style={{ color: "#30A9DE", textAlign: "end", textDecoration: "none" }}>Playlist</h1>
           {SongsValue.map((song) => (
-            <SongList key={song.order} order={song.order} name={song.name} url={song.url} time={song.time} artist={song.artist} />
+            <SongList
+              key={song.order}
+              order={song.order}
+              name={song.name}
+              url={song.url}
+              time={song.time}
+              artist={song.artist}
+            />
           ))}
         </div>
         <div className="openSpotify">
